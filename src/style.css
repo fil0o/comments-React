@@ -1,0 +1,81 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	min-width: 1000px;
+	font-family: Arial;
+}
+
+input{
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+  display: block;
+	border: none;
+  margin: 40px auto;
+  border-radius: 5px;
+}
+
+textarea {
+  font-size: 16px;
+  width: 300px;
+  height: 100px;
+  margin: 10px auto;
+  display: block;
+  padding: 10px;
+	border: none;
+  resize: none;
+  border-radius: 5px;
+}
+
+.noComment {
+	padding-top: 10px;
+	text-align: center;
+	font-size: 16px;
+}
+
+.comments {
+  width: 960px;
+  margin: 0 auto;
+  background-color: #ddd;
+	border-radius: 10px;
+}
+
+.userName{
+  font-size: 20px;
+  font-style: italic;
+  padding: 20px;
+}
+
+.userText {
+  padding: 20px;
+}
+
+.commentDate {
+  font-size: 12px;
+  padding: 20px 0 5px 20px;
+  border-bottom: 1px solid black;
+}
+
+.buttonDel {
+	float: right;
+	margin-right: 10px;
+	color: red;
+	background-color: inherit;
+	border: none;
+	cursor: pointer;
+}
+
+.addComment {
+  text-align: center;
+}
+
+.buttonSub{
+  padding: 10px;
+  font-size: 16px;
+  margin: 20px;
+  border-radius: 15px;
+  background-color: #1679B9;
+  color: white;
+  cursor: pointer;
+
+}
