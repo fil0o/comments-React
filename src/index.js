@@ -23,14 +23,28 @@ class Comment extends React.Component {
       this.handleClick = this.handleClick.bind(this);
 
       const localStorageItem = localStorage.getItem('localComments');
-      const comments = localStorageItem ? JSON.parse(localStorageItem) : [];
 
-      this.state = {
-        comments,
-        noComment: 'Комментариев еще нету!',
-        inputName: '',
-        inputText: ''
-      };
+      try {
+        const comments = localStorageItem ? JSON.parse(localStorageItem) : [];
+
+        this.state = {
+          comments,
+          noComment: 'Комментариев еще нету!',
+          inputName: '',
+          inputText: ''
+        };
+      } catch (e) {
+        alert(`Произошла ошибки при чтении данных из localStorage код ошибки ${e}`);
+        this.state = {
+          comments: [],
+          noComment: 'Комментариев еще нету!',
+          inputName: '',
+          inputText: ''
+        };
+        localStorage.clear();
+      }
+
+
 
   }
 
@@ -76,8 +90,9 @@ class Comment extends React.Component {
   //  Удаление комментария из state и localStorage
   delComment(key){
     const comments = this.state.comments;
+    console.log(key);
     comments.splice(key, 1);
-
+    console.log(comments);
     saveLocalStorage(comments);
 
     this.setState({ comments });
@@ -95,7 +110,7 @@ class Comment extends React.Component {
                 <div  key={i} className="comment">
                   <UserInfo
                   user={comment}
-                  delComment={this.delComment.bind(this)}
+                  delComment={this.delComment.bind(this, i)}
                   />
                 </div>
               )}
